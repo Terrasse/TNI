@@ -1,0 +1,131 @@
+\documentclass[a4paper,titlepage]{report}
+\pagestyle{plain}
+\usepackage[french]{babel}
+
+
+\usepackage{tracklang}
+
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8,latin1]{inputenc}
+
+\usepackage[]{algorithm2e}
+\usepackage{titlesec}
+\usepackage{xspace}
+\usepackage[version=1]{mhchem} % Package for chemical equation typesetting
+\usepackage{graphicx}
+\usepackage{amsmath} % Required for some math elements
+\usepackage{amssymb}
+\usepackage[babel=true]{csquotes}
+\usepackage[backend=biber,bibencoding=utf8]{biblatex}
+\usepackage[toc,lof,lot]{multitoc}
+\renewcommand*{\multicolumntoc}{2}
+\setlength{\columnseprule}{0.5pt}
+\renewcommand*{\multicolumnlof}{2}
+\renewcommand*{\multicolumnlot}{2}
+% package tableaux
+\usepackage{booktabs}
+\usepackage[table,xcdraw]{xcolor}
+
+% package glossaire
+\usepackage[acronym]{glossaries}
+\usepackage{xparse}
+
+\RestyleAlgo{boxed}
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\Title}{Traitement Numérique de l'Image\xspace}
+\renewcommand{\labelenumi}{\alph{enumi}.} % Make numbering in the enumerate environment by letter rather than number (e.g. section 6)
+
+
+
+% bibliographie
+\addbibresource{rapport.bib}
+\DefineBibliographyStrings{english}{%
+	bibliography = {Bibliographie},
+}
+
+% glossaire  
+\makeglossaries
+\setglossarystyle{altlist}
+
+\DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
+	\newglossaryentry{gls-#3}{name={#5},text={#5\glsadd{#3}},
+		description={#6},#1
+	}
+	\newacronym[see={[Glossary:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}
+}
+
+
+\newacronym{tic}{TIC}{Technologies de l'Information et de la Communication}
+\newacronym{moe}{MOE}{maîtrise d'œuvre}
+\newacronym{moa}{MOA}{maîtrise d'ouvrage}
+
+\newglossaryentry{snap}
+{
+	name=Snapshot,
+	description={Type de copie de volume se réalisant de façon quasi instantanée et consommant peu d'espace disques grâce à l'utilisation d'un mécanisme de pointeurs entre les volumes sources et les volumes cibles.}
+}
+
+\title{Traitement Numérique de l'Image}
+
+\author{Terry \textsc{DERVAUX}}
+\date{\today} % Date for the report
+
+\titleformat{\chapter}
+{\Large\bfseries}	% Format
+{}					% Label
+{0pt}				% Séparation
+{\huge}				% Before code
+
+\begin{document}
+	\begin{titlepage}
+		\center
+		\includegraphics[width = 100mm]{./images/logo_telecom_nancy.png}
+		\HRule \\[0.4cm]
+		{\huge \bfseries \Title}\\[0.4cm]
+		{ \bfseries Compte rendu TP3 et TP4}\\[0.4cm]
+		\HRule \\[1.5cm]
+		
+		\begin{minipage}[t]{0.45\textwidth}
+			\begin{flushleft} \large
+				\emph{Auteurs:}\\
+				Terry \textsc{Dervaux}\\
+				Anthony \textsc{Fioravanti}\\
+			\end{flushleft}
+		\end{minipage}
+		~
+		\begin{minipage}[t]{0.45\textwidth}
+			
+			\begin{flushright} \large
+				\emph{Enseignant :}\\
+				Vincent \textsc{Bombardier}\\
+			\end{flushright}
+			
+			
+		\end{minipage}\\[1.5cm]
+		\HRule \\[1.5cm]
+		
+		Date: \today\\
+		
+		\vfill
+	\end{titlepage}
+	
+	\tableofcontents
+	
+	\chapter{Introduction}
+		\paragraph{}
+		Dans cette partie, je vais vous situer rapidement le contexte de mon projet d'approfondissement et vous présenter la mission qui m'a été confiée.
+		\section{Contexte}
+		
+	
+	\listoffigures	
+	
+	\printglossaries
+	
+	
+	\printbibliography
+	
+\end{document}
